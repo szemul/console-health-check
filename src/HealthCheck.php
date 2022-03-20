@@ -12,7 +12,7 @@ use Szemul\Helper\DateHelper;
 
 class HealthCheck
 {
-
+    /** @codeCoverageIgnore */
     public function __construct(
         protected DateHelper $dateHelper,
         protected string $checkFilePath = '/tmp/console-health-check',
@@ -53,7 +53,7 @@ class HealthCheck
             throw new RuntimeException('The check file does not contain a timestamp. Contents: ' . $timestamp);
         }
 
-        return CarbonImmutable::createFromTimestamp($timestamp);
+        return CarbonImmutable::createFromTimestamp($timestamp)->setMicro(0);
     }
 
     public function checkIsHealthy(CarbonInterface $cutoffDate): bool
@@ -64,6 +64,6 @@ class HealthCheck
             return false;
         }
 
-        return $checkTime->isAfter($cutoffDate);
+        return $checkTime->isAfter($cutoffDate->copy()->setMicro(0));
     }
 }
