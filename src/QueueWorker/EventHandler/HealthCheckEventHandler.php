@@ -11,7 +11,6 @@ use Throwable;
 
 class HealthCheckEventHandler implements CommandEventHandlerInterface, WorkerEventHandlerInterface
 {
-
     public function __construct(protected HealthCheck $healthCheck)
     {
     }
@@ -80,5 +79,4 @@ class HealthCheckEventHandler implements CommandEventHandlerInterface, WorkerEve
     {
         // Noop
     }
-
 }
