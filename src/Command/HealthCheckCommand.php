@@ -46,6 +46,12 @@ class HealthCheckCommand extends Command
         $thresholdSeconds = $input->getOption('threshold-seconds');
         $errorExitCode    = max(1, (int)$input->getOption('error-exit-code'));
 
+        if ($thresholdSeconds < 1) {
+            $output->writeln('<error>The threshold seconds option is required to be a positive integer</error>');
+
+            return $errorExitCode;
+        }
+
         $cutOffDate = $this->dateHelper->getCurrentTime()->subSeconds($thresholdSeconds);
 
         if ($this->healthCheck->checkIsHealthy($cutOffDate)) {

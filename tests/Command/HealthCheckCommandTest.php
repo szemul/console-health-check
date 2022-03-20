@@ -35,6 +35,19 @@ class HealthCheckCommandTest extends TestCase
         $this->sut         = new HealthCheckCommand($this->healthCheck, $this->dateHelper); // @phpstan-ignore-line
     }
 
+    public function testExecuteWithNoThresholdSeconds(): void
+    {
+        $input  = $this->getInput(0);
+        $output = $this->getOutput();
+
+        $this->expectOutputLine(
+            $output,
+            '<error>The threshold seconds option is required to be a positive integer</error>',
+        );
+
+        $this->assertSame(1, $this->runExecute($input, $output));
+    }
+
     public function testExecuteWithHealthyFile(): void
     {
         $input  = $this->getInput(10);
