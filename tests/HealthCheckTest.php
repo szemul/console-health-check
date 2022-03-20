@@ -99,7 +99,7 @@ class HealthCheckTest extends TestCase
     {
         $carbon = CarbonImmutable::create(2022, 3, 20, 1, 2, 3)->setMicro(456789);
 
-        $this->dateHelper->shouldReceive('getCurrentTime')->withNoArgs()->andReturn($carbon);
+        $this->dateHelper->shouldReceive('getCurrentTime')->withNoArgs()->andReturn($carbon); // @phpstan-ignore-line
 
         return $carbon;
     }
