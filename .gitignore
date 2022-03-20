@@ -1,0 +1,15 @@
+/.settings
+/.project
+/.buildpath
+/.idea
+/.env
+/auth.json
+/nbproject/*
+/.php_cs.cache
+/.php-cs-fixer.cache
+vendor
+composer.phar
+.DS_Store
+coverage.*
+docker-compose.override.yml
+/.phpunit.result.cache
