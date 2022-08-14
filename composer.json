@@ -15,7 +15,7 @@
         "phpstan/phpstan": "^1.4.6",
         "phpunit/phpunit": "^9.5.5",
         "szemul/helper": "^1.0.0",
-        "szemul/queue-worker": "^1.0.0"
+        "szemul/queue-worker": "^1.0.0|^2.0.0"
     },
     "autoload": {
         "psr-4": {
