@@ -13,3 +13,4 @@ composer.phar
 coverage.*
 docker-compose.override.yml
 /.phpunit.result.cache
+/.phpunit.cache

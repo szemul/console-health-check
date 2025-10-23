@@ -30,8 +30,8 @@ class HealthCheckCommandTest extends TestCase
     {
         parent::setUp();
 
-        $this->healthCheck = Mockery::mock(HealthCheck::class); // @phpstan-ignore-line
-        $this->dateHelper  = Mockery::mock(DateHelper::class); // @phpstan-ignore-line
+        $this->healthCheck = Mockery::mock(HealthCheck::class);
+        $this->dateHelper  = Mockery::mock(DateHelper::class);
         $this->sut         = new HealthCheckCommand($this->healthCheck, $this->dateHelper); // @phpstan-ignore-line
     }
 
@@ -102,12 +102,12 @@ class HealthCheckCommandTest extends TestCase
         ->with('error-exit-code')
             ->andReturn((string)$errorExitCode);
 
-        return $input; // @phpstan-ignore-line
+        return $input;
     }
 
     private function getOutput(): OutputInterface|MockInterface
     {
-        return Mockery::mock(OutputInterface::class); // @phpstan-ignore-line
+        return Mockery::mock(OutputInterface::class);
     }
 
     private function runExecute(InputInterface $input, OutputInterface $output): int

@@ -23,50 +23,44 @@ class HealthCheckEventHandlerTest extends TestCase
     {
         parent::setUp();
 
-        $this->healthCheck = Mockery::mock(HealthCheck::class); // @phpstan-ignore-line
+        $this->healthCheck = Mockery::mock(HealthCheck::class);
         $this->sut         = new HealthCheckEventHandler($this->healthCheck); // @phpstan-ignore-line
     }
 
     public function testHandleBeforeLoop(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->sut->handleBeforeLoop();
-        // Noop assert,this method should do nothing
-        $this->assertTrue(true);
     }
 
     public function testHandleCommandException(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->sut->handleCommandException(new RuntimeException());
-        // Noop assert,this method should do nothing
-        $this->assertTrue(true);
     }
 
     public function testHandleCommandFinally(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->sut->handleCommandFinally();
-        // Noop assert,this method should do nothing
-        $this->assertTrue(true);
     }
 
     public function testHandleCommandFinished(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->sut->handleCommandFinished();
-        // Noop assert,this method should do nothing
-        $this->assertTrue(true);
     }
 
     public function testHandleCommandInterrupted(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->sut->handleCommandInterrupted();
-        // Noop assert,this method should do nothing
-        $this->assertTrue(true);
     }
 
     public function testHandleInterrupt(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->sut->handleInterrupt();
-        // Noop assert,this method should do nothing
-        $this->assertTrue(true);
     }
 
     public function testHandleIterationComplete(): void
@@ -95,23 +89,20 @@ class HealthCheckEventHandlerTest extends TestCase
 
     public function testHandleSignalReceived(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->sut->handleSignalReceived(SIGINT);
-        // Noop assert,this method should do nothing
-        $this->assertTrue(true);
     }
 
     public function testHandleWorkerException(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->sut->handleWorkerException(new RuntimeException());
-        // Noop assert,this method should do nothing
-        $this->assertTrue(true);
     }
 
     public function testHandleWorkerFinally(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->sut->handleWorkerFinally();
-        // Noop assert,this method should do nothing
-        $this->assertTrue(true);
     }
 
     private function expectHealthcheckUpdated(): static

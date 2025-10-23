@@ -30,7 +30,7 @@ class HealthCheckTest extends TestCase
             unlink(self::TEST_PATH);
         }
 
-        $this->dateHelper = Mockery::mock(DateHelper::class); // @phpstan-ignore-line
+        $this->dateHelper = Mockery::mock(DateHelper::class);
         $this->sut        = new HealthCheck($this->dateHelper, self::TEST_PATH); // @phpstan-ignore-line
     }
 

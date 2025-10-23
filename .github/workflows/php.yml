@@ -25,7 +25,7 @@ jobs:
 
     - name: Cache Composer packages
       id: composer-cache
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
@@ -46,7 +46,7 @@ jobs:
 
     - name: Cache Composer packages
       id: composer-cache
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
@@ -67,7 +67,7 @@ jobs:
 
     - name: Cache Composer packages
       id: composer-cache
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
@@ -80,11 +80,11 @@ jobs:
     - name: PHPUnit
       run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2
-      with:
-        env_vars: OS
-        fail_ci_if_error: true
-        files: coverage.xml
-        flags: unittests
-        verbose: true
+#    - name: Upload coverage to Codecov
+#      uses: codecov/codecov-action@v2
+#      with:
+#        env_vars: OS
+#        fail_ci_if_error: true
+#        files: coverage.xml
+#        flags: unittests
+#        verbose: true

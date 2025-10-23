@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Szemul\ConsoleHealthCheck\Command;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -10,15 +11,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Szemul\ConsoleHealthCheck\HealthCheck;
 use Szemul\Helper\DateHelper;
 
+#[AsCommand(
+    name: 'health:check-console',
+    description: 'Checks that a long running command has updated its health check file recently',
+)]
 class HealthCheckCommand extends Command
 {
-    protected static $defaultName        = 'health:check-console';
-    protected static $defaultDescription = 'Checks that a long running command has updated its health check file recently';
-
     public function __construct(
         protected HealthCheck $healthCheck,
         protected DateHelper $dateHelper,
-        string $name = null,
+        ?string $name = null,
     ) {
         parent::__construct($name);
     }
